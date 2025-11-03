@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent Profile - Rukshana Bandara</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/4b2d6aeaba.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Fire animation canvas */
+    #fireCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at bottom, #000, #111);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: white;
+      font-family: Arial, sans-serif;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fire canvas background -->
+  <canvas id="fireCanvas"></canvas>
+
+  <div id="header">
+    <div class="container1">
+      <nav>
+        <ul id="sidemenu">
+          <li><i class="fas fa-house"></i><a href="index.html">Home</a></li>
+          <li><i class="fas fa-address-card"></i><a href="about.html">About</a></li>
+          <li><i class="fas fa-gear"></i><a href="portfolio.html">Skills</a></li>
+          <li><i class="fas fa-phone"></i><a href="contact.html">Contact</a></li>
+          <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"> M e n u</i>
+      </nav>
+    </div>
+  </div>
+
+  <div class="header-text">
+    <h1><span>P</span>ortfolio</h1>
+  </div>
+
+  <div class="home">
+    <div class="image"><img src="images/MYPic.png" width="450px"></div>
+    <div class="content">
+      <center>
+        <h1>I am <span>Rukshana Bandara......</span><br>a graduate with a<br>BSc (Hons) in Information Technology from the General Sir John Kotelawala Defence University.</h1>
+        <br>
+        <div class="image"><img src="images/kdu.png" width="200px"></div>
+        <div class="details">
+          <p style="text-align: center;">"A smart, enthusiastic team player with a well-organized and highly
+            resourceful personality, complemented by excellent communication skills.
+            A quick learner who can absorb new ideas rapidly and work proactively in
+            complex, fast-paced environments. Skilled in project planning and
+            dedicated to developing a professional career in the IT field, while
+            contributing to innovative projects that deliver meaningful impact."
+          </p>
+
+          <p>“I aspire to build a dynamic career across multiple domains in Information Technology, 
+            with a strong interest in roles such as Project Manager, Business Analyst, Quality Assurance Specialist, 
+            Web Developer, Software Engineer, System/IT Administrator, Network Engineer (Computer/Telecommunication), 
+            Data Analyst, and IT Executive. These roles resonate with both my academic foundation and professional ambitions, 
+            allowing me to leverage my technical expertise, analytical mindset, and problem-solving skills to deliver impactful 
+            solutions, drive organizational growth, and continuously expand my professional capabilities.”</p>
+
+          <div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="btn" style="font-size: 18px; padding: 8px 13px; text-decoration: none; color: #13CEF0; display: inline-block; border-radius: 6px;">
+              <i class="fa fa-arrow-up"></i>
+            </a>
+          </div>
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <!-- Footer Animation -->
+  <div class="copyright">
+    <p>***** &copy; - Rukshana Bandara @ 2025. All Rights Reserved - *****</p>
+  </div>
+
+  <style>
+    .copyright {
+      width: 100%;
+      overflow: hidden;
+      background: #5E5851;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 10px 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .copyright p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 15s linear infinite;
+      margin: 0;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+
+  <script>
+    /*------ Menu Functions ------*/
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu() { sidemenu.style.right = "0"; }
+    function closemenu() { sidemenu.style.right = "-200px"; }
+
+    /*------ Fire Particle Animation ------*/
+    const canvas = document.getElementById("fireCanvas");
+    const ctx = canvas.getContext("2d");
+    let w, h;
+    const fireParticles = [];
+    const numFire = 150;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    class FireParticle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * w;
+        this.y = h + Math.random() * 50;
+        this.size = Math.random() * 6 + 2;
+        this.speedY = Math.random() * 1.5 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.alpha = Math.random() * 0.6 + 0.4;
+        this.color = this.randomColor();
+      }
+      randomColor() {
+        const colors = [
+          "rgba(255, 200, 0, ",   // yellow
+          "rgba(255, 140, 0, ",   // orange
+          "rgba(255, 80, 0, ",    // reddish-orange
+          "rgba(255, 50, 0, "     // deep red
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.y / 20) * 0.3;
+        this.alpha -= 0.005;
+        if (this.alpha <= 0 || this.y < -10) {
+          this.reset();
+          this.alpha = Math.random() * 0.6 + 0.4;
+        }
+      }
+      draw() {
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        gradient.addColorStop(0, this.color + this.alpha + ")");
+        gradient.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < numFire; i++) {
+      fireParticles.push(new FireParticle());
+    }
+
+    function animateFire() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < fireParticles.length; i++) {
+        const p = fireParticles[i];
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateFire);
+    }
+
+    animateFire();
+  </script>
+</body>
+</html>

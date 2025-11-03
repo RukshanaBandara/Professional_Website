@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent Profile - Rukshana Bandara</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/4b2d6aeaba.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ==== STAR BACKGROUND ==== */
+    #starsCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+    }
+
+    /* Canvas overlay for button hover */
+    #hoverCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: white;
+      background: transparent;
+      font-family: Arial, sans-serif;
+    }
+
+    .btn, .btn2 {
+      position: relative;
+      z-index: 3;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover, .btn2:hover {
+      transform: scale(1.05);
+    }
+
+    .header-text {
+      text-align: center;
+      color: #fff;
+      padding-top: 150px;
+    }
+
+    .copyright {
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 10px 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .copyright p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 15s linear infinite;
+      margin: 0;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Full Page Star Canvas -->
+  <canvas id="starsCanvas"></canvas>
+  <!-- Canvas for hover glow animation -->
+  <canvas id="hoverCanvas"></canvas>
+
+  <div id="header">
+    <div class="container1">
+      <nav>
+        <ul id="sidemenu">
+          <li><i class="fas fa-house"></i><a href="index.html">Home</a></li>
+          <li><i class="fas fa-address-card"></i><a href="about.html">About</a></li>
+          <li><i class="fas fa-gear"></i><a href="portfolio.html">Skills</a></li>
+          <li><i class="fas fa-phone"></i><a href="contact.html">Contact</a></li>
+          <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"> M e n  u</i>
+      </nav>
+    </div>
+  </div>
+
+  <div class="header-text">
+    <h1><span>P</span>ortfolio</h1>
+  </div>
+
+  <!----------------contact----------------->
+  <div id="contact">
+    <div class="container" style="display: flex;">
+      <div class="row">
+        <div class="contact-left">
+          <h2 style="margin-left: 30px; color: #FAAF0C; font-family: Merlin; font-size: 40px; text-align: center;">- Contact Me -</h2>
+          <p><i class="fa-solid fa-paper-plane"></i> rukshanabandara2001@gmail.com</p>
+          <p><i class="fa-solid fa-phone"></i> +9470 2280238 / +9471 8020090</p>
+          <p><i class="fa-brands fa-linkedin"></i> www.linkedin.com/in/rukshanabandara-3438742b4</p>
+          <p><i class="fa-brands fa-github"></i> https://github.com/RukshanaBandara</p>
+          <a href="Rukshana-Bandara-Resume.pdf" download class="btn btn2">Download CV</a>
+        </div>
+
+        <div class="Con">
+          <center><img src="images/my.gif" width="200px"></center>
+        </div>
+
+        <div class="contact-right">
+          <form>
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 5px;">
+      <a href="#" class="btn" style="
+        font-size: 18px;
+        padding: 8px 13px;
+        text-decoration: none;
+        color: #13CEF0;
+        display: inline-block;
+        border-radius: 6px;">
+        <i class="fa fa-arrow-up"></i>
+      </a>
+    </div>
+
+    <!-- Footer Animation -->
+    <div class="copyright">
+      <p>*****  &copy; - Rukshana Bandara @ 2025. All Rights Reserved -  *****</p>
+    </div>
+  </div>
+
+  <script>
+    /*------small side menu-----*/
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu() { sidemenu.style.right = "0"; }
+    function closemenu() { sidemenu.style.right = "-200px"; }
+
+    /*------ FULL PAGE STARS ANIMATION ------*/
+    const canvas = document.getElementById("starsCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+    const numStars = 200;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.6 + 0.2,
+        opacity: Math.random()
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 255, 255," + star.opacity + ")";
+        ctx.fill();
+      });
+    }
+
+    function moveStars() {
+      stars.forEach(star => {
+        star.x -= star.speed;
+        star.opacity = 0.5 + Math.sin(Date.now() * 0.001 + star.y) * 0.5;
+        if (star.x < 0) {
+          star.x = canvas.width;
+          star.y = Math.random() * canvas.height;
+        }
+      });
+    }
+
+    function animateStars() {
+      drawStars();
+      moveStars();
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+
+    /*------ BUTTON HOVER CANVAS EFFECT ------*/
+    const hoverCanvas = document.getElementById("hoverCanvas");
+    const hCtx = hoverCanvas.getContext("2d");
+    hoverCanvas.width = window.innerWidth;
+    hoverCanvas.height = window.innerHeight;
+
+    let particles = [];
+
+    function createParticles(x, y) {
+      for (let i = 0; i < 30; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          size: Math.random() * 4 + 2,
+          speedX: (Math.random() - 0.5) * 6,
+          speedY: (Math.random() - 0.5) * 6,
+          life: 60
+        });
+      }
+    }
+
+    function handleParticles() {
+      hCtx.clearRect(0, 0, hoverCanvas.width, hoverCanvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        hCtx.beginPath();
+        hCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        hCtx.fillStyle = "rgba(255, 215, 0, " + (p.life / 60) + ")";
+        hCtx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.life--;
+      }
+      particles = particles.filter(p => p.life > 0);
+      requestAnimationFrame(handleParticles);
+    }
+    handleParticles();
+
+    function addHoverEffect(btn) {
+      btn.addEventListener("mouseenter", e => {
+        const rect = btn.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        createParticles(x, y);
+      });
+    }
+
+    document.querySelectorAll(".btn2").forEach(addHoverEffect);
+  </script>
+</body>
+</html>
