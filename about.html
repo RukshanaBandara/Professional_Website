@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Profile - Rukshana Bandara</title>
+    <link rel="stylesheet" href="style_about.css">
+    <script src="https://kit.fontawesome.com/4b2d6aeaba.js" crossorigin="anonymous"></script>
+
+    <style>
+    /* ===== EDUCATION IMAGE GLOW EFFECT ONLY ===== */
+    .edu-glow {
+        animation: glowPulse 1.5s infinite ease-in-out;
+    }
+
+    @keyframes glowPulse {
+        0% { opacity: 1; filter: drop-shadow(0 0 5px #13CEF0); }
+        50% { opacity: 0.5; filter: drop-shadow(0 0 25px #13CEF0); }
+        100% { opacity: 1; filter: drop-shadow(0 0 5px #13CEF0); }
+    }
+
+    /* Footer Ticker */
+    .copyright {
+        width: 100%;
+        overflow: hidden;
+        background: #000;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 10px 0;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .copyright p {
+        display: inline-block;
+        padding-left: 100%;
+        animation: ticker 15s linear infinite;
+        margin: 0;
+    }
+
+    @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* Progress Bar Basic Styling */
+    .progress {
+        background: #1e1e1e;
+        border-radius: 20px;
+        height: 20px;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background:#1AF07C;
+        text-align: right;
+        padding-right: 10px;
+        line-height: 25px;
+        color: #0216F7;
+        font-weight: bold;
+        width: 0; /* Start from 0 for animation */
+        transition: width 2s ease-in-out;
+    }
+    </style>
+
+</head>
+<body>
+
+<div id="header">
+    <div class="container1">
+        <nav>
+            <ul id="sidemenu">
+                <li><i class="fas fa-house"></i><a href="index.html">Home</a></li>
+                <li><i class="fas fa-address-card"></i><a href="about.html">About</a></li>
+                <li><i class="fas fa-gear"></i><a href="portfolio.html">Skills</a></li>
+                <li><i class="fas fa-phone"></i><a href="contact.html">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"> M e n  u</i>
+        </nav>
+    </div>
+</div>
+
+<div class="header-text">
+    <h1><span>P</span>ortfolio</h1>
+    <div class="image" style="text-align: left;">
+        <img src="images/global.gif" width="105px">
+    </div>
+</div>
+
+<!-- ================= EDUCATION SECTION ================= -->
+<section class="education">
+    <h1 class="heading" style="font-family: Merlin;">-My Education-</h1>
+<br>
+    <div class="box-container">
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <i class="fa-solid fa-book"></i>
+            <span style="color: #13CEF0;">-Schools-</span>
+
+            <h3>Dharmaraja College, Kandy</h3>
+            <img src="images/rajans.png" width="75px" class="edu-glow"><br><br>
+            <p style="color: #EBD138;"><b>
+                Successfully completed GCE A/L Examination in Arts Stream in 2020.
+            </b></p>
+            <b>(Z Score - 1.0453)</b>
+		
+
+            <p>---------------------------------------------</p>
+
+            <h3>Sri Sumangala (St.Pauls) College, Kandy</h3>
+            <img src="images/nerians.png" width="85px" class="edu-glow"><br><br>
+            <p style="color: #EBD138;"><b>
+                Successfully completed GCE O/L Examination in 2017.
+            </b></p>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <i class="fas fa-graduation-cap"></i>
+            <span style="color: #13CEF0;">-University-</span>
+
+            <h3>General Sir John Kotelawala Defence University</h3>
+            <img src="images/kdu.png" width="120px" class="edu-glow"><br><br>
+            <h3 style="color: #EBD138;">-BSc (Hons) Information Technology-</h3>
+			<br>
+            <p><b>(FGPA = 3.0344)</b></p>
+        </div>
+		
+
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <i class="fas fa-briefcase"></i>
+            <span style="color: #13CEF0;">-Working Experience-</span>
+			
+            <h3>Perfetti Van Melle Lanka Pvt Ltd</h3>
+            <p style="font-size:12px; color:white;"><b>(22 December 2025 – Ongoing)</b></p>
+			<br>
+            <img src="images/pvm.png" width="115px" class="edu-glow"><br><br>
+            <h3 style="color: #EBD138;">-Information Technology Officer-</h3>
+
+            <p>---------------------------------------------</p>
+
+            <h3>Sri Lanka Telecom PLC</h3>
+            <h4>Outside Plant Maintenance Centre - Kandy</h4>
+            <p style="font-size:12px; color:white;"><b>(15 July 2024 – 15 January 2025)</b></p>
+			<br>
+            <img src="images/STLIMAGE.png" width="75px" class="edu-glow"><br><br>
+            <h3 style="color: #EBD138;">-Information Technology and Networks Intern-</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= SKILLS SECTION WITH PROGRESS ================= -->
+<section class="skills">
+    <h1 class="heading" style="font-family: Merlin;">-Professional Skills-</h1>
+
+    <div class="box-container">
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/PR.png" width="90px"> -Project Planning and Documentation-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="100%">100%</div>
+            </div>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/SA.png" width="100px"> -System Administration-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="100%">100%</div>
+            </div>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/WD.png" width="90px"> -Web Development-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="90%">95%</div>
+            </div>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/DA.png" width="90px"> -Data Analysis-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="83%">90%</div>
+            </div>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/GD.png" width="120px"> -Graphic Design-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="83%">90%</div>
+            </div>
+        </div>
+
+        <div class="box" style="background-color: rgb(1, 43, 50);">
+            <h3><img src="images/NET.png" width="120px"> -Networking-</h3>
+            <div class="progress">
+                <div class="progress-bar" data-width="78%">80%</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="btn" style="font-size: 18px; padding: 8px 13px; text-decoration: none; color: #13CEF0; display: inline-block; border-radius: 6px;">
+              <i class="fa fa-arrow-up"></i>
+            </a>
+<div class="copyright">
+    <p>*****  © - Rukshana Bandara @ 2026. All Rights Reserved -  *****</p>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+var sidemenu = document.getElementById("sidemenu");
+
+function openmenu(){ sidemenu.style.right = "0"; }
+function closemenu(){ sidemenu.style.right = "-200px"; }
+
+/* ===== PROGRESS BAR ANIMATION ON PAGE LOAD ===== */
+window.addEventListener("load", function() {
+    const bars = document.querySelectorAll(".progress-bar");
+    bars.forEach(function(bar) {
+        let finalWidth = bar.getAttribute("data-width");
+        bar.style.width = "0%";  // start from 0
+        setTimeout(function() {
+            bar.style.width = finalWidth; // fill to correct %
+        }, 300);
+    });
+});
+</script>
+
+</body>
+</html>
